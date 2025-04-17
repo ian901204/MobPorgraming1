@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashSet;
 
 public class RunRunGuineaPigCarCarRace {
     private static final int RACE_LENGTH = 4000;
@@ -31,11 +32,13 @@ public class RunRunGuineaPigCarCarRace {
             // Check if time is a multiple of 10
             if (time % 10 == 0) {
                 // Find leading and trailing racers
-                GuineaPigCarCar leader = getLeadingRacer();
+                List<GuineaPigCarCar> leaders = getLeadingRacers();
                 GuineaPigCarCar trailer = getTrailingRacer();
                 
-                // Leader eats lettuce
-                leader.eat(Food.Lettuce);
+                // All leaders eat lettuce
+                for (GuineaPigCarCar leader : leaders) {
+                    leader.eat(Food.Lettuce);
+                }
                 
                 // Trailer eats carrot
                 trailer.eat(Food.Carrot);
@@ -69,6 +72,28 @@ public class RunRunGuineaPigCarCarRace {
         }
     }
     
+    private List<GuineaPigCarCar> getLeadingRacers() {
+        List<GuineaPigCarCar> leaders = new ArrayList<>();
+        double maxDistance = 0;
+        
+        // First find the maximum distance
+        for (GuineaPigCarCar racer : racers) {
+            if (racer.getDistance() > maxDistance) {
+                maxDistance = racer.getDistance();
+            }
+        }
+        
+        // Then find all racers at that distance
+        for (GuineaPigCarCar racer : racers) {
+            if (racer.getDistance() == maxDistance) {
+                leaders.add(racer);
+            }
+        }
+        
+        return leaders;
+    }
+    
+    // This method is kept for determining the winner at the end
     private GuineaPigCarCar getLeadingRacer() {
         GuineaPigCarCar leader = racers.get(0);
         for (GuineaPigCarCar racer : racers) {
