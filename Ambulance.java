@@ -18,4 +18,9 @@ public class Ambulance extends Car {
     public void resetSpeed() {
         super.resetSpeed();
     }
+    
+    @Override
+    public String getType() {
+        return "救護車";
+    }
 }

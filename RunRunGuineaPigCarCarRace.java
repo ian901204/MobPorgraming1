@@ -34,20 +34,23 @@ public class RunRunGuineaPigCarCarRace {
                 // Find leading and trailing racers
                 List<GuineaPigCarCar> leaders = getLeadingRacers();
                 GuineaPigCarCar trailer = getTrailingRacer();
-                
-                // All leaders eat lettuce
-                for (GuineaPigCarCar leader : leaders) {
-                    leader.eat(Food.Lettuce);
-                }
-                
-                // Trailer eats carrot
-                trailer.eat(Food.Carrot);
-                
+
                 System.out.println("Time " + time + "s:");
                 for (GuineaPigCarCar racer : racers) {
                     System.out.println(racer.getName() + " - Speed: " + racer.getSpeed() + 
                                       " m/s, Distance: " + racer.getDistance() + " m");
                 }
+                
+                // All leaders eat lettuce
+                for (GuineaPigCarCar leader : leaders) {
+                    System.out.println(leader.getName() + "吃了生菜！");
+                    leader.eat(Food.Lettuce);
+                }
+                
+                // Trailer eats carrot
+                System.out.println(trailer.getName() + "吃了胡蘿蔔！");
+                trailer.eat(Food.Carrot);
+                
                 System.out.println();
             }
             

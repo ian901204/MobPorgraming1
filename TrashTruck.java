@@ -18,4 +18,9 @@ public class TrashTruck extends Car {
     public void resetSpeed() {
         super.resetSpeed();
     }
+    
+    @Override
+    public String getType() {
+        return "垃圾車";
+    }
 }

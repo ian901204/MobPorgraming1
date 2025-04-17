@@ -23,4 +23,8 @@ public class Car implements ICar {
     public void resetSpeed() {
         speed = BASICSPEED;
     }
+    
+    public String getType() {
+        return "一般車";
+    }
 }

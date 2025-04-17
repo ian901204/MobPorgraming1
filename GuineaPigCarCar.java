@@ -20,13 +20,7 @@ public class GuineaPigCarCar extends GuineaPig {
         
         // If food is carrot and specific car type, increase speed
         if (food == Food.Carrot) {
-            if (car instanceof PoliceCar) {
-                car.accelerate();
-            } else if (car instanceof Ambulance) {
-                car.accelerate();
-            } else if (car instanceof TrashTruck) {
-                car.accelerate();
-            }
+            car.accelerate();
         }
     }
     
@@ -59,13 +53,6 @@ public class GuineaPigCarCar extends GuineaPig {
     }
     
     public String getType() {
-        if (car instanceof PoliceCar) {
-            return "警車";
-        } else if (car instanceof Ambulance) {
-            return "救護車";
-        } else if (car instanceof TrashTruck) {
-            return "垃圾車";
-        }
-        return "未知車種";
+        return car.getType();
     }
 }

@@ -18,4 +18,9 @@ public class PoliceCar extends Car {
     public void resetSpeed() {
         super.resetSpeed();
     }
+    
+    @Override
+    public String getType() {
+        return "警車";
+    }
 }
