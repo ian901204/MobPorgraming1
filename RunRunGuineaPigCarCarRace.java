@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.HashSet;
 
 public class RunRunGuineaPigCarCarRace {
     private static final int RACE_LENGTH = 4000;
